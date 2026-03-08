@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engenharia da Resiliência | Framework Premium</title>
+    
+    <!-- Fontes do Google: Playfair Display (Serif) e Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            300: '#FDE68A',
+                            400: '#FBBF24',
+                            500: '#D4AF37', // Classic Gold
+                            600: '#B49020',
+                        },
+                        dark: {
+                            900: '#030303',
+                            800: '#0a0a0a',
+                            700: '#141414',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Personalizados para as Animações -->
+    <style>
+        body {
+            background-color: #030303;
+        }
+        
+        /* Classes para a animação de Fade-in no Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delays em cascata para os 4 pilares */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* Efeito glassmorphism para o popup */
+        .glass-popup {
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body class="text-zinc-300 font-sans selection:bg-gold-500/30 selection:text-gold-300 antialiased overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-24 px-6 sm:px-12 border-b border-zinc-800/40 overflow-hidden reveal active">
+        <!-- Brilho de fundo sutil (Ambient Glow) -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50 mb-10 shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                <span class="text-[11px] font-medium tracking-[0.2em] uppercase text-zinc-400">Framework Teórico</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-zinc-100 tracking-tight leading-tight mb-8">
+                Engenharia da <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 italic">Resiliência</span>
+            </h1>
+            <p class="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">
+                Uma abordagem proativa e sofisticada para projetar e gerenciar sistemas complexos, capaz de sustentar operações sob condições esperadas e, fundamentalmente, inesperadas.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 sm:px-12 py-24 space-y-40">
+        
+        <!-- As 4 Capacidades (Pilares) -->
+        <section>
+            <div class="mb-16 text-center max-w-3xl mx-auto reveal">
+                <h2 class="text-3xl md:text-4xl font-serif text-zinc-100 mb-6">Os Quatro Pilares Fundamentais</h2>
+                <p class="text-zinc-400 font-light text-lg">
+                    A resiliência não é um atributo estático, mas uma ação contínua. Um sistema verdadeiramente resiliente executa quatro capacidades interconectadas com maestria.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pilar 1: Antecipar -->
+                <div class="group relative bg-dark-800 border border-zinc-800/60 hover:border-gold-500/40 rounded-2xl p-10 transition-all duration-700 overflow-hidden reveal delay-100">
+                    <!-- Fundo decorativo sutil -->
+                    <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-5 transition-opacity duration-700 transform translate-x-4 -translate-y-4 scale-150">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" class="w-full h-full text-gold-500"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg>
+                    </div>
+                    
+                    <div class="mb-8 inline-flex items-center justify-center w-14 h-14 rounded-full bg-zinc-900/80 border border-zinc-800 group-hover:bg-gold-500/10 transition-colors duration-500">
+                        <!-- Ícone Refinado: Bússola/Astrolábio -->
+                        <svg class="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-3xl font-serif text-zinc-100 mb-2">Antecipar</h3>
+                    <p class="text-gold-500/80 text-xs font-semibold tracking-[0.15em] uppercase mb-6">Saber o que esperar</p>
+                    <p class="text-zinc-400 font-light leading-relaxed text-sm md:text-base">
+                        Identificar ameaças potenciais, variações, degradações e oportunidades antes que o sistema seja levado ao seu limite. Não se trata de adivinhação, mas de compreender profundamente as fronteiras do sistema.
+                    </p>
+                </div>
+
+                <!-- Pilar 2: Monitorar -->
+                <div class="group relative bg-dark-800 border border-zinc-800/60 hover:border-gold-500/40 rounded-2xl p-10 transition-all duration-700 overflow-hidden reveal delay-200">
+                    <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-5 transition-opacity duration-700 transform translate-x-4 -translate-y-4 scale-150">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" class="w-full h-full text-gold-500"><path d="M2 12h6l2-5 4 10 2-5h6"/><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
+                    
+                    <div class="mb-8 inline-flex items-center justify-center w-14 h-14 rounded-full bg-zinc-900/80 border border-zinc-800 group-hover:bg-gold-500/10 transition-colors duration-500">
+                        <!-- Ícone Refinado: Radar/Atividade -->
+                        <svg class="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-3xl font-serif text-zinc-100 mb-2">Monitorar</h3>
+                    <p class="text-gold-500/80 text-xs font-semibold tracking-[0.15em] uppercase mb-6">Saber o que procurar</p>
+                    <p class="text-zinc-400 font-light leading-relaxed text-sm md:text-base">
+                        Acompanhar indicadores críticos que revelam o estado operacional atual. Uma avaliação contínua do ambiente interno e externo para detectar os sinais mais sutis de mudança e degradação.
+                    </p>
+                </div>
+
+                <!-- Pilar 3: Responder -->
+                <div class="group relative bg-dark-800 border border-zinc-800/60 hover:border-gold-500/40 rounded-2xl p-10 transition-all duration-700 overflow-hidden reveal delay-300">
+                    <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-5 transition-opacity duration-700 transform translate-x-4 -translate-y-4 scale-150">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" class="w-full h-full text-gold-500"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    
+                    <div class="mb-8 inline-flex items-center justify-center w-14 h-14 rounded-full bg-zinc-900/80 border border-zinc-800 group-hover:bg-gold-500/10 transition-colors duration-500">
+                        <!-- Ícone Refinado: Fluxo/Adaptação -->
+                        <svg class="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-3xl font-serif text-zinc-100 mb-2">Responder</h3>
+                    <p class="text-gold-500/80 text-xs font-semibold tracking-[0.15em] uppercase mb-6">Saber o que fazer</p>
+                    <p class="text-zinc-400 font-light leading-relaxed text-sm md:text-base">
+                        Agir de forma adaptativa diante de eventos inesperados ou perturbações críticas. A capacidade estrutural de ajustar recursos e estratégias em tempo real para sustentar as operações fundamentais.
+                    </p>
+                </div>
+
+                <!-- Pilar 4: Aprender -->
+                <div class="group relative bg-dark-800 border border-zinc-800/60 hover:border-gold-500/40 rounded-2xl p-10 transition-all duration-700 overflow-hidden reveal delay-400">
+                    <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-5 transition-opacity duration-700 transform translate-x-4 -translate-y-4 scale-150">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" class="w-full h-full text-gold-500"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    
+                    <div class="mb-8 inline-flex items-center justify-center w-14 h-14 rounded-full bg-zinc-900/80 border border-zinc-800 group-hover:bg-gold-500/10 transition-colors duration-500">
+                        <!-- Ícone Refinado: Conhecimento/Luz -->
+                        <svg class="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18h6"/>
+                            <path d="M10 22h4"/>
+                            <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-3xl font-serif text-zinc-100 mb-2">Aprender</h3>
+                    <p class="text-gold-500/80 text-xs font-semibold tracking-[0.15em] uppercase mb-6">Saber o que aconteceu</p>
+                    <p class="text-zinc-400 font-light leading-relaxed text-sm md:text-base">
+                        Extrair lições significativas do trabalho diário. Compreender não apenas por que as falhas ocorrem, mas, fundamentalmente, como as coisas dão certo na esmagadora maioria das vezes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divisor Elegante -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent reveal"></div>
+
+        <!-- Safety I vs Safety II -->
+        <section class="reveal">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-serif text-zinc-100 mb-6">A Mudança de Paradigma</h2>
+                <p class="text-zinc-400 font-light text-lg">
+                    A transição metodológica da investigação exclusiva de falhas para a compreensão sistemática do sucesso diário.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-px bg-zinc-800/40 rounded-3xl overflow-hidden border border-zinc-800/40 shadow-2xl">
+                <!-- Safety-I -->
+                <div class="bg-dark-900 p-10 md:p-16 transition-colors hover:bg-dark-800">
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="p-3 border border-zinc-800 rounded-full">
+                            <svg class="w-6 h-6 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-4xl font-serif text-zinc-400">Safety-I</h3>
+                    </div>
+                    <p class="text-xl text-zinc-500 font-serif italic mb-12 border-l-2 border-zinc-800 pl-6 py-2">
+                        "Evitar que as coisas deem errado."
+                    </p>
+                    
+                    <ul class="space-y-10">
+                        <li class="space-y-3">
+                            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-600">Definição de Segurança</h4>
+                            <p class="text-zinc-400 font-light text-sm md:text-base leading-relaxed">Uma condição onde o número de eventos adversos é minimizado ao extremo.</p>
+                        </li>
+                        <li class="space-y-3">
+                            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-600">A Natureza do Erro</h4>
+                            <p class="text-zinc-400 font-light text-sm md:text-base leading-relaxed">Visto como uma quebra no sistema, geralmente atribuído à falha humana ou técnica.</p>
+                        </li>
+                        <li class="space-y-3">
+                            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-600">Foco de Atuação</h4>
+                            <p class="text-zinc-400 font-light text-sm md:text-base leading-relaxed">Reativo. A investigação se inicia após o acidente acontecer.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Safety-II -->
+                <div class="bg-[#080808] p-10 md:p-16 relative transition-colors hover:bg-dark-800">
+                    <!-- Detalhe superior em dourado -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"></div>
+                    
+                    <div class="flex items-center gap-5 mb-10">
+                        <div class="p-3 border border-gold-500/30 bg-gold-500/5 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                            <svg class="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-4xl font-serif text-zinc-100">Safety-II</h3>
+                    </div>
+                    <p class="text-xl text-gold-400/90 font-serif italic mb-12 border-l-2 border-gold-500/30 pl-6 py-2">
+                        "Garantir que as coisas deem certo."
+                    </p>
+                    
+                    <ul class="space-y-10">
+                        <li class="space-y-3">
+                            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-gold-600/70">Definição de Segurança</h4>
+                            <p class="text-zinc-300 font-light text-sm md:text-base leading-relaxed">A capacidade contínua de ser bem-sucedido sob variadas e imprevistas condições diárias.</p>
+                        </li>
+                        <li class="space-y-3">
+                            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-gold-600/70">A Natureza do Erro</h4>
+                            <p class="text-zinc-300 font-light text-sm md:text-base leading-relaxed">Sucessos e falhas derivam da mesma fonte: a variabilidade e a adaptação humana (Work-as-Done).</p>
+                        </li>
+                        <li class="space-y-3">
+                            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-gold-600/70">Foco de Atuação</h4>
+                            <p class="text-zinc-300 font-light text-sm md:text-base leading-relaxed">Proativo. Apoiar e amplificar estruturalmente a capacidade das pessoas de se adaptarem sob pressão.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desmistificando -->
+        <section class="pb-10 reveal" id="desmistificando-section">
+            <div class="bg-dark-800 border border-zinc-800/60 rounded-3xl p-10 md:p-20 relative overflow-hidden">
+                <!-- Marca d'água abstrata -->
+                <svg class="absolute -bottom-20 -right-20 w-96 h-96 text-zinc-900 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a10 10 0 0 1 10 10"/>
+                </svg>
+
+                <h2 class="text-3xl md:text-4xl font-serif text-zinc-100 mb-16 text-center relative z-10">Desmistificando a Resiliência</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 relative z-10">
+                    <!-- O que não é -->
+                    <div>
+                        <h3 class="text-xl font-serif text-zinc-400 mb-8 flex items-center gap-4 border-b border-zinc-800/50 pb-6">
+                            <span class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-500 border border-zinc-800">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                            </span>
+                            O Senso Comum
+                        </h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-zinc-700 mt-2 shrink-0"></span>
+                                <span class="text-zinc-500 font-light leading-relaxed">Apenas 'rebote' ou a capacidade heroica de voltar ao estado normal após um desastre.</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-zinc-700 mt-2 shrink-0"></span>
+                                <span class="text-zinc-500 font-light leading-relaxed">Adicionar redundância irrestrita ou construir sistemas tecnologicamente impenetráveis.</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-zinc-700 mt-2 shrink-0"></span>
+                                <span class="text-zinc-500 font-light leading-relaxed">A busca incansável pela eliminação completa do erro humano através de regras estritas.</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-zinc-700 mt-2 shrink-0"></span>
+                                <span class="text-zinc-500 font-light leading-relaxed">Uma característica estática ou selo que um sistema 'possui' na sua arquitetura.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- O que é -->
+                    <div>
+                        <h3 class="text-xl font-serif text-zinc-100 mb-8 flex items-center gap-4 border-b border-zinc-800/50 pb-6">
+                            <span class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400 border border-gold-500/20 shadow-[0_0_10px_rgba(212,175,55,0.15)]">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            A Perspectiva da Engenharia
+                        </h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500/70 mt-2 shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></span>
+                                <span class="text-zinc-300 font-light leading-relaxed">A capacidade intrínseca de estender ou adaptar o funcionamento antes e durante grandes mudanças.</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500/70 mt-2 shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></span>
+                                <span class="text-zinc-300 font-light leading-relaxed">Reconhecer que os humanos são a principal fonte de flexibilidade, resiliência e segurança.</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500/70 mt-2 shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></span>
+                                <span class="text-zinc-300 font-light leading-relaxed">Compreender e mapear a lacuna crítica entre o 'trabalho prescrito' e o 'trabalho real' executado.</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500/70 mt-2 shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.5)]"></span>
+                                <span class="text-zinc-300 font-light leading-relaxed">Uma performance diária: trata-se sobre o que o sistema 'faz', e não sobre o que ele 'tem'.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer minimalista -->
+    <footer class="border-t border-zinc-900 bg-[#020202] py-12 text-center reveal">
+        <p class="text-zinc-600 text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase">
+            Engenharia da Resiliência • Framework de Sistemas Complexos
+        </p>
+    </footer>
+
+    <!-- Popup do LinkedIn (Escondido por padrão) -->
+    <div id="linkedin-popup" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 w-[90%] md:w-96 glass-popup p-6 md:p-8 rounded-2xl shadow-2xl z-50 transform translate-y-[150%] opacity-0 transition-all duration-700 ease-out">
+        <button onclick="closePopup()" class="absolute top-4 right-4 text-zinc-500 hover:text-zinc-300 transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        
+        <div class="flex items-start gap-4 mb-5">
+            <div class="w-12 h-12 rounded-full bg-blue-600/10 border border-blue-500/30 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </div>
+            <div>
+                <h4 class="text-zinc-100 font-serif text-lg leading-tight mb-2">Gostou do conteúdo?</h4>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed">
+                    Vamos nos conectar para mais discussões sobre tecnologia, inovação e Engenharia da Resiliência.
+                </p>
+            </div>
+        </div>
+        
+        <a href="https://www.linkedin.com/in/daniel-fernandes-14a156194" target="_top" rel="noopener noreferrer" class="block w-full text-center py-3 px-4 bg-zinc-100 hover:bg-white text-zinc-900 font-medium text-sm rounded-lg transition-colors duration-300">
+            Conectar no LinkedIn
+        </a>
+    </div>
+
+    <!-- Scripts para as animações e o Popup -->
+    <script>
+        // 1. Lógica do Scroll Reveal (Fade-in)
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Opcional: Descomente a linha abaixo se quiser que a animação ocorra apenas uma vez
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        };
+
+        const revealOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Dispara quando 15% do elemento estiver visível
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 2. Lógica do Popup do LinkedIn
+        const popup = document.getElementById('linkedin-popup');
+        let popupShown = false;
+
+        window.addEventListener('scroll', () => {
+            if (popupShown) return; // Não dispara novamente se já foi mostrado
+
+            // Calcula a distância até o final da página
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const threshold = document.body.offsetHeight - 300; // Dispara ~300px antes do final
+
+            if (scrollPosition >= threshold) {
+                // Mostra o popup removendo as classes que o escondem
+                popup.classList.remove('translate-y-[150%]', 'opacity-0');
+                popupShown = true;
+            }
+        });
+
+        // Função para fechar o popup manualmente
+        function closePopup() {
+            popup.classList.add('translate-y-[150%]', 'opacity-0');
+        }
+    </script>
+</body>
+</html>
+
+
+
